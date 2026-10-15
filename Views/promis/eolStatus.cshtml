@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "eolStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="intro">
+        <p style='text-align: center;'><b>EOL EQUIPMENT STATUS</b></p>
+        <input class="loc" value="EOL" hidden/>
+        <div style="width: auto; margin: 0px auto 0px;border-collapse: collapse; font-size:.7em">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2">
+                        <span>PROCESS:</span>
+                        <select id="pkgLine" class="filter form-control" name="pkgLine" data-col="PACKAGE LINE">
+                            <option value="" default selected></option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <span>STATUS OWNER:</span>
+                        <select id="statusOwner" class="filter form-control" name="statusOwner" data-col="STATUS OWNER">
+                            <option value="" default selected></option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <span>MACHINE PF:</span>   
+                        <select id="tstpf" class="filter form-control" name="tstpf" data-col="MACHINE PF">
+                        <option value="" default selected></option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <span>MACHINE ID:</span>    
+                        <select id="tstID" class="filter form-control" name="tstID" data-col="MACHINE ID">
+                            <option value="" default selected></option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <span>|Keyword:</span>
+                        <input id="keyword" class="form-control" type="text" name="keyword" placeholder="Search Keyword" />|
+                    </div>
+                    <div class="col-2 mt-3">
+                        <input id="filter" class="btn btn-primary" type="button" name="filter" value="Filter" />
+                        <button class="btn btn-primary" onclick="exportTableToCSV(Date()+'promisdata.csv')">Export To CSV</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id='forUpdate'></div>
+        <table id="keywords" class="table table-responsive-sm blue custom_table" style="font-size:.5em">
+            <thead id="thead">
+                <tr style="cursor: default;">
+                    <th>DATE / TIME</th>
+                    <th>MACHINE ID</th>
+                    <th>MACHINE PF</th>
+                    <th>PRODUCT NAME</th>
+                    <th>PACKAGE LINE</th>
+                    <th>LOT ID</th>
+                    <th>STATUS</th>
+                    <th>STATUS OWNER</th>
+                    <th>DURATION (HRS.)</th>
+                    <th>COMMENTS</th>
+                    <th>WHO</th>
+                </tr>
+            </thead>
+            <tbody class="tbodyEol"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+</div>
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>
